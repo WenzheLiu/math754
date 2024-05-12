@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>754</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.5/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div v-for="(ai, i) in a" :key="i">
+      <h1 v-if="i % 5 === 0">----- Day {{ i / 5 + 1 }} -----</h1>
+      <h1>{{ ai }} × {{ b[i] }} = ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</h1>
+    </div>
+  </div>
+
+  <script>
+    function rnd(length) {
+      const randomArray = [];
+      for (let i = 0; i < length; i++) {
+        randomArray.push(Math.floor(Math.random() * (10000 - 1000)) + 1000);
+      }
+      return randomArray;
+    }
+    new Vue({
+      el: '#app',
+      data: {
+        a: rnd(5 * 7),
+        b: rnd(5 * 7),
+      }
+    });
+  </script>
+</body>
+
+</html>
